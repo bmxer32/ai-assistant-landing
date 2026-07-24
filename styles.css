@@ -535,7 +535,6 @@ input[type=range]::-moz-range-thumb{
   background:var(--blue);color:#fff;max-width:88%;
   padding:15px 20px;border-radius:20px;border-bottom-right-radius:7px;
   font-size:.98rem;line-height:1.45;
-  box-shadow:0 10px 24px rgba(31,134,255,.3);
 }
 .fq-bubble.typing{display:inline-flex;gap:5px;align-items:center;padding:17px 20px}
 .fq-bubble.typing i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.85);animation:blink 1s infinite}
@@ -558,6 +557,11 @@ input[type=range]::-moz-range-thumb{
 }
 .tg-card .ava{width:66px;height:66px;margin:0 auto 18px}
 .tg-card .ava .eye{width:14px;height:19px}
+.tg-logo{
+  width:72px;height:72px;margin:0 auto 18px;object-fit:contain;
+  background:#fff;border:3px solid var(--ink);border-radius:18px;padding:5px;
+  box-shadow:4px 4px 0 rgba(22,35,46,.25);
+}
 .tg-card h3{font-family:var(--d);font-weight:700;font-size:1.3rem;margin-bottom:10px}
 .tg-card p{color:var(--muted);font-size:.97rem;max-width:36ch;margin:0 auto 24px}
 .tg-card .btn{width:100%;font-size:1.05rem}
