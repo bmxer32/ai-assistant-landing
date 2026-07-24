@@ -224,9 +224,16 @@ h2{font-size:clamp(1.55rem,3.6vw,2.5rem);font-weight:900}
 .chat-status::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(23,163,74,.4)}50%{box-shadow:0 0 0 6px rgba(23,163,74,0)}}
 .chat-log{
-  padding:18px 2px 6px;display:flex;flex-direction:column;gap:12px;
-  min-height:260px;max-height:340px;overflow-y:auto;scrollbar-width:thin;
+  padding:18px 10px 6px 2px;display:flex;flex-direction:column;gap:12px;
+  min-height:260px;max-height:340px;overflow-y:auto;
+  /* кастомный скролл: Firefox + новые Chromium */
+  scrollbar-width:thin;scrollbar-color:#C9D4DD transparent;
 }
+/* кастомный скролл: Safari + старые Chromium */
+.chat-log::-webkit-scrollbar{width:6px}
+.chat-log::-webkit-scrollbar-track{background:transparent;margin:10px 0}
+.chat-log::-webkit-scrollbar-thumb{background:#C9D4DD;border-radius:99px}
+.chat-log::-webkit-scrollbar-thumb:hover{background:#A9B8C4}
 .msg{
   max-width:86%;padding:12px 16px;border-radius:18px;font-size:.98rem;line-height:1.4;
   opacity:0;transform:translateY(10px) scale(.97);
