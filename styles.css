@@ -65,12 +65,13 @@ h1,h2{font-family:var(--d);line-height:1.08;letter-spacing:-.01em}
 h2{font-size:clamp(1.55rem,3.6vw,2.5rem);font-weight:900}
 .section{padding:96px 0;position:relative}
 
-/* «стопка листов»: цветной блок ложится на предыдущий
-   со скруглёнными верхними углами и мягкой тенью */
-.sheet{
-  border-radius:46px 46px 0 0;
-  margin-top:-46px;
-  box-shadow:0 -16px 34px rgba(22,35,46,.16);
+/* диагональный срез на стыке цветных блоков:
+   --cut = цвет ПРЕДЫДУЩЕЙ секции, клин врезается в текущую */
+.cut{
+  position:absolute;top:0;left:0;right:0;z-index:2;pointer-events:none;
+  height:clamp(26px,4.5vw,58px);
+  background:var(--cut);
+  clip-path:polygon(0 0,100% 0,0 100%);
 }
 .bg-cream{background:var(--cream)}
 .sec-head{max-width:640px;margin-bottom:52px}
@@ -581,7 +582,6 @@ input[type=range]::-moz-range-thumb{
   .wrap{padding:0 20px}
   .fab{right:16px;bottom:16px;width:54px;height:54px}
   .fab::after{display:none}
-  .sheet{border-radius:30px 30px 0 0;margin-top:-30px}
   .tg-card{transform:none;padding:30px 22px}
   .t-time{display:none}
 }
