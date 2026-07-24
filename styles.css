@@ -1,3 +1,25 @@
+/* ============ шрифты: локальные копии, без обращений к Google ============
+   подмножества — кириллица и латиница; font-display:swap, чтобы текст
+   показывался сразу системным шрифтом и не было белого экрана */
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/golos-text-400-cyrillic.woff2) format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/golos-text-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/golos-text-500-cyrillic.woff2) format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/golos-text-500-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/golos-text-600-cyrillic.woff2) format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/golos-text-600-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/golos-text-700-cyrillic.woff2) format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/golos-text-700-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:800;font-display:swap;src:url(fonts/golos-text-800-cyrillic.woff2) format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:800;font-display:swap;src:url(fonts/golos-text-800-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/jetbrains-mono-400-cyrillic.woff2) format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/jetbrains-mono-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/jetbrains-mono-700-cyrillic.woff2) format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/jetbrains-mono-700-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Unbounded';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/unbounded-700-cyrillic.woff2) format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116}
+@font-face{font-family:'Unbounded';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/unbounded-700-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Unbounded';font-style:normal;font-weight:900;font-display:swap;src:url(fonts/unbounded-900-cyrillic.woff2) format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116}
+@font-face{font-family:'Unbounded';font-style:normal;font-weight:900;font-display:swap;src:url(fonts/unbounded-900-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+
 /* ============ tokens ============ */
 :root{
   --yellow:#FFCE45;
@@ -120,12 +142,13 @@ h2{font-size:clamp(1.55rem,3.6vw,2.5rem);font-weight:900}
 }
 .chip.solid-green{background:var(--green);border-color:var(--green);color:#fff}
 
-/* появление при скролле */
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .6s ease}
-.reveal.in{opacity:1;transform:none}
-.reveal.d1{transition-delay:.08s}
-.reveal.d2{transition-delay:.16s}
-.reveal.d3{transition-delay:.24s}
+/* Появление при скролле. Прячем только когда JS живой (класс .js ставит
+   инлайновый скрипт в <head>) — иначе при сбое JS страница осталась бы пустой. */
+.js .reveal{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .6s ease}
+.js .reveal.in{opacity:1;transform:none}
+.js .reveal.d1{transition-delay:.08s}
+.js .reveal.d2{transition-delay:.16s}
+.js .reveal.d3{transition-delay:.24s}
 
 /* ============ шапка ============ */
 .site-head{
@@ -211,8 +234,8 @@ h2{font-size:clamp(1.55rem,3.6vw,2.5rem);font-weight:900}
 .hero-cta{display:flex;flex-wrap:wrap;gap:16px;margin-top:32px;align-items:center}
 .hero-note{font-family:var(--m);font-size:.78rem;max-width:24ch;line-height:1.5}
 
-/* стагер появления в hero */
-.hero .pop{opacity:0;transform:translateY(18px);animation:pop .55s ease forwards}
+/* стагер появления в hero — тоже только при живом JS */
+.js .hero .pop{opacity:0;transform:translateY(18px);animation:pop .55s ease forwards}
 .hero .pop.p1{animation-delay:.05s}
 .hero .pop.p2{animation-delay:.15s}
 .hero .pop.p3{animation-delay:.25s}
@@ -266,11 +289,8 @@ h2{font-size:clamp(1.55rem,3.6vw,2.5rem);font-weight:900}
 .chat-thumb.on{opacity:1;pointer-events:auto;cursor:grab}
 .chat-thumb:hover{background:#A9B8C4}
 .chat-thumb.drag{background:#8FA1B3;cursor:grabbing}
-.msg{
-  max-width:86%;padding:12px 16px;border-radius:18px;font-size:.98rem;line-height:1.4;
-  opacity:0;transform:translateY(10px) scale(.97);
-  animation:msg-in .3s ease forwards;
-}
+.msg{max-width:86%;padding:12px 16px;border-radius:18px;font-size:.98rem;line-height:1.4}
+.js .msg{opacity:0;transform:translateY(10px) scale(.97);animation:msg-in .3s ease forwards}
 @keyframes msg-in{to{opacity:1;transform:none}}
 .msg.client{background:#EEF2F6;color:#24313D;border-bottom-left-radius:6px;align-self:flex-start}
 .msg.bot{
@@ -283,7 +303,9 @@ h2{font-size:clamp(1.55rem,3.6vw,2.5rem);font-weight:900}
 .msg.typing i:nth-child(3){animation-delay:.36s}
 @keyframes blink{0%,60%,100%{opacity:.35;transform:translateY(0)}30%{opacity:1;transform:translateY(-3px)}}
 .msg-meta{font-family:var(--m);font-size:.68rem;color:#8795A1;align-self:flex-end;margin-top:-6px}
-.chat-suggest{display:flex;flex-wrap:wrap;gap:8px;padding:14px 2px 6px;border-top:2px solid #EEF2F6}
+/* кнопки-вопросы работают только с JS — без него их не показываем */
+.chat-suggest{display:none;flex-wrap:wrap;gap:8px;padding:14px 2px 6px;border-top:2px solid #EEF2F6}
+.js .chat-suggest{display:flex}
 .chat-suggest .hint{width:100%;font-family:var(--m);font-size:.68rem;color:#8795A1;letter-spacing:.06em;text-transform:uppercase}
 .q-chip{
   border:2px solid var(--ink);border-radius:999px;padding:8px 14px;
@@ -441,7 +463,7 @@ input[type=range]::-moz-range-thumb{
 .feat:hover{transform:translateY(-6px) rotate(0);box-shadow:9px 11px 0 rgba(22,35,46,.18)}
 
 /* появление с подпрыгом при первом скролле до блока */
-.pop-card{opacity:0}
+.js .pop-card{opacity:0}
 .pop-card.in{opacity:1;animation:card-pop .65s cubic-bezier(.3,1.3,.45,1) backwards}
 .pop-card.in.d1{animation-delay:.12s}
 .pop-card.in.d2{animation-delay:.24s}
@@ -538,7 +560,8 @@ input[type=range]::-moz-range-thumb{
 }
 .fq-q:hover{transform:translateX(5px);border-color:var(--ink);background:var(--white)}
 .fq.open .fq-q{border-color:var(--ink);background:var(--white)}
-.fq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.fq-a{overflow:hidden;transition:max-height .35s ease}
+.js .fq-a{max-height:0}
 .fq-a-in{display:flex;justify-content:flex-end;padding:12px 0 6px}
 .fq-bubble{
   background:var(--blue);color:#fff;max-width:88%;
@@ -611,10 +634,11 @@ input[type=range]::-moz-range-thumb{
   position:fixed;right:22px;bottom:22px;z-index:1200;
   width:62px;height:62px;border-radius:50%;background:var(--ink);
   border:3px solid var(--yellow);
-  display:flex;align-items:center;justify-content:center;gap:6px;
+  display:none;align-items:center;justify-content:center;gap:6px;
   box-shadow:0 14px 30px rgba(22,35,46,.4);
   transition:transform .2s ease, opacity .3s ease;
 }
+.js .fab{display:flex}
 .fab:hover{transform:scale(1.1) rotate(-6deg)}
 .fab .eye{width:12px;height:17px}
 .fab.hide{opacity:0;pointer-events:none}
@@ -644,7 +668,7 @@ input[type=range]::-moz-range-thumb{
 @media (max-width:720px){
   .section{padding:64px 0}
   .main-nav{display:none}
-  .burger{display:block}
+  .js .burger{display:block}
   .steps{grid-template-columns:1fr}
   .step-arrow{transform:rotate(90deg);justify-self:center;animation:none}
   .feat-grid{grid-template-columns:1fr}
@@ -662,7 +686,8 @@ input[type=range]::-moz-range-thumb{
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
-  .reveal{opacity:1;transform:none}
-  .hero .pop{opacity:1;transform:none}
-  .pop-card{opacity:1}
+  .js .reveal{opacity:1;transform:none}
+  .js .hero .pop{opacity:1;transform:none}
+  .js .pop-card{opacity:1}
+  .js .msg{opacity:1;transform:none}
 }

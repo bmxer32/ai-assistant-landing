@@ -6,10 +6,10 @@
 <title>AI-ассистент для бизнеса — отвечает клиентам за вас 24/7</title>
 <meta name="description" content="AI-ассистент отвечает клиентам в Telegram, WhatsApp и на сайте за 3 секунды. Обучается на ваших данных за 1 день. Демо бесплатно.">
 <meta name="theme-color" content="#FFCE45">
+<script>document.documentElement.classList.add('js')</script>
 <link rel="icon" type="image/jpeg" href="logo.jpg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Golos+Text:wght@400;500;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="preload" href="fonts/golos-text-400-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/unbounded-900-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -78,7 +78,13 @@
           </div>
         </div>
         <div class="chat-logwrap">
-          <div class="chat-log" id="chatLog" aria-live="polite"></div>
+          <!-- диалог статичен в разметке: виден даже если скрипт не загрузился.
+             При живом JS лог очищается и диалог проигрывается с печатанием. -->
+        <div class="chat-log" id="chatLog" aria-live="polite">
+          <div class="msg client">Сколько стоит доставка по Москве?</div>
+          <div class="msg bot">Курьером — 350 ₽, при заказе от 5 000 ₽ — бесплатно 🚚 Оформить заказ?</div>
+          <div class="msg-meta">прочитано · 23:47</div>
+        </div>
           <span class="chat-thumb" id="chatThumb" aria-hidden="true"></span>
         </div>
         <div class="chat-suggest" id="chatSuggest">
@@ -92,7 +98,7 @@
 
 <!-- ============ бегущая строка ============ -->
 <div class="ticker" aria-hidden="true">
-  <div class="ticker-track" id="tickerTrack"></div>
+  <div class="ticker-track"><span>⚡ ответ за 3 секунды</span><span>🌙 работает, пока вы спите</span><span>✅ ни одной потерянной заявки</span><span>📅 записывает клиентов</span><span>💬 telegram · whatsapp · сайт · avito</span><span>🧠 знает ваш бизнес наизусть</span><span>⚡ ответ за 3 секунды</span><span>🌙 работает, пока вы спите</span><span>✅ ни одной потерянной заявки</span><span>📅 записывает клиентов</span><span>💬 telegram · whatsapp · сайт · avito</span><span>🧠 знает ваш бизнес наизусть</span></div>
 </div>
 
 <!-- ============ как работает ============ -->
@@ -169,17 +175,17 @@
       <div class="calc-controls">
         <div class="row">
           <label for="rLeads">Обращений в месяц <output id="oLeads">300</output></label>
-          <input type="range" id="rLeads" min="30" max="2000" step="10" value="300">
+          <input type="range" id="rLeads" min="30" max="2000" step="10" value="300" style="--fill:13.7%">
         </div>
         <div class="row">
           <label for="rCheck">Средний чек <output id="oCheck">3 000 ₽</output></label>
-          <input type="range" id="rCheck" min="500" max="50000" step="500" value="3000">
+          <input type="range" id="rCheck" min="500" max="50000" step="500" value="3000" style="--fill:5.1%">
         </div>
         <p class="calc-note">Считаем консервативно: ~35% обращений приходит вне рабочего времени, 6 из 10 не дожидаются утра, каждый третий из ответивших покупает. Оценка примерная — точную посчитаем на демо.</p>
       </div>
       <div class="calc-result">
         <span class="cap">уходит конкурентам</span>
-        <span class="big" id="lossOut">≈ 63 000 ₽</span>
+        <span class="big" id="lossOut">≈ 56 700 ₽</span>
         <span class="per">каждый месяц — только из-за скорости ответа</span>
         <a class="btn" href="#cta">Вернуть эти деньги</a>
       </div>

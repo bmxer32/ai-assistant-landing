@@ -28,13 +28,7 @@ if(burger && menu){
   });
 }
 
-/* ---------- бегущая строка ---------- */
-var phrases = ['⚡ ответ за 3 секунды','🌙 работает, пока вы спите','✅ ни одной потерянной заявки','📅 записывает клиентов','💬 telegram · whatsapp · сайт · avito','🧠 знает ваш бизнес наизусть'];
-var track = document.getElementById('tickerTrack');
-if(track){
-  var half = phrases.map(function(p){return '<span>'+p+'</span>';}).join('');
-  track.innerHTML = half + half; /* дубль для бесшовного цикла */
-}
+/* бегущая строка живёт в разметке — дублирована для бесшовного цикла */
 
 /* ---------- появление при скролле ---------- */
 var io = new IntersectionObserver(function(es){
@@ -95,6 +89,9 @@ if(log && suggest){
     {q:'А есть самовывоз?', a:'Да, бесплатно: ул. Пушкина, 10, ежедневно с 10:00 до 23:00. Соберём заказ за 30 минут 🛍️'}
   ];
   var busy = false;
+
+  /* статичный диалог из разметки убираем — дальше проигрываем его с печатанием */
+  log.innerHTML = '';
 
   /* свой ползунок прокрутки — родной скроллбар скрыт в CSS */
   var thumb = document.getElementById('chatThumb');
