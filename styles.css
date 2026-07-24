@@ -65,17 +65,14 @@ h1,h2{font-family:var(--d);line-height:1.08;letter-spacing:-.01em}
 h2{font-size:clamp(1.55rem,3.6vw,2.5rem);font-weight:900}
 .section{padding:96px 0;position:relative}
 
-/* зубчатый «край чека» на стыках цветных блоков:
-   --tear = цвет ПРЕДЫДУЩЕЙ секции, зубцы врезаются в текущую */
-.tear{
-  position:absolute;top:0;left:0;right:0;height:13px;z-index:2;pointer-events:none;
-  background:
-    linear-gradient(-45deg, var(--tear) 9.5px, transparent 0),
-    linear-gradient(45deg, var(--tear) 9.5px, transparent 0);
-  background-position:left bottom;
-  background-repeat:repeat-x;
-  background-size:26px 26px;
+/* «стопка листов»: цветной блок ложится на предыдущий
+   со скруглёнными верхними углами и мягкой тенью */
+.sheet{
+  border-radius:46px 46px 0 0;
+  margin-top:-46px;
+  box-shadow:0 -16px 34px rgba(22,35,46,.16);
 }
+.bg-cream{background:var(--cream)}
 .sec-head{max-width:640px;margin-bottom:52px}
 .sec-head h2{margin-top:16px}
 .sec-head p{margin-top:14px;font-size:1.05rem;color:var(--muted)}
@@ -584,6 +581,7 @@ input[type=range]::-moz-range-thumb{
   .wrap{padding:0 20px}
   .fab{right:16px;bottom:16px;width:54px;height:54px}
   .fab::after{display:none}
+  .sheet{border-radius:30px 30px 0 0;margin-top:-30px}
   .tg-card{transform:none;padding:30px 22px}
   .t-time{display:none}
 }
