@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Кейсы — AI-ассистент для бизнеса</title>
+<meta name="description" content="Примеры внедрений AI-ассистента: барбершоп, доставка еды, автосервис, салон красоты, автозапчасти, онлайн-школа.">
+<meta name="theme-color" content="#FFCE45">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Golos+Text:wght@400;500;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip" href="#main">К содержанию</a>
+
+<!-- ============ шапка ============ -->
+<header class="site-head" id="top">
+  <div class="head-in">
+    <a class="logo" href="index.html" aria-label="На главную">
+      <span class="ava"><span class="eye"><span class="pupil"></span></span><span class="eye"><span class="pupil"></span></span></span>
+      Ассистент <b>24/7</b>
+    </a>
+    <nav class="main-nav" aria-label="Основная навигация">
+      <a href="index.html#how">Как работает</a>
+      <a href="cases.html" aria-current="page">Кейсы</a>
+      <a href="index.html#pricing">Тарифы</a>
+      <a href="index.html#faq">Вопросы</a>
+      <a class="btn" href="#cta">Демо бесплатно</a>
+    </nav>
+    <button class="burger" aria-expanded="false" aria-controls="mmenu" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mmenu">
+  <a href="index.html#how">Как работает</a>
+  <a href="cases.html">Кейсы</a>
+  <a href="index.html#pricing">Тарифы</a>
+  <a href="index.html#faq">Вопросы</a>
+  <a class="btn" href="#cta">Демо бесплатно</a>
+</div>
+
+<main id="main">
+
+<!-- ============ hero ============ -->
+<section class="page-hero">
+  <div class="wrap">
+    <span class="eyebrow">Примеры работ</span>
+    <h1>Ассистенты уже работают. Вот как.</h1>
+    <p class="sub">Шесть внедрений — от барбершопа до магазина запчастей. Везде одна схема: материалы → обучение за день → ассистент отвечает, записывает и продаёт.</p>
+    <div class="hero-chips" style="margin-top:24px">
+      <span class="chip solid-green">Запуск — 1 день</span>
+      <span class="chip">Telegram · WhatsApp · Сайт · Avito</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ бегущая строка ============ -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track" id="tickerTrack"></div>
+</div>
+
+<!-- ============ кейсы ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="case-grid">
+
+      <article class="case reveal">
+        <div class="case-top">
+          <span class="case-tag">💈 Барбершоп</span>
+          <span class="case-chan">Telegram</span>
+        </div>
+        <h3>«Кактус», Москва</h3>
+        <p class="prob">Администратор один, после 21:00 телефон молчал — вечерние записи просто терялись.</p>
+        <div class="case-chat">
+          <div class="msg client">Можно завтра куда-нибудь после 19:00?</div>
+          <div class="msg bot">Есть окно в 19:30 у Димы. Записать? ✂️</div>
+        </div>
+        <div class="case-stats">
+          <span class="stat"><b>+23</b><small>записи в месяц</small></span>
+          <span class="stat"><b>0</b><small>пропущенных чатов</small></span>
+        </div>
+      </article>
+
+      <article class="case reveal d1">
+        <div class="case-top">
+          <span class="case-tag">🍣 Доставка еды</span>
+          <span class="case-chan">WhatsApp</span>
+        </div>
+        <h3>Роллы «Икура»</h3>
+        <p class="prob">Пик заказов — вечер и ночь, а операторы уходили в 22:00. Ночные сообщения оставались без ответа до утра.</p>
+        <div class="case-chat">
+          <div class="msg client">Вы ещё работаете? Хочу филадельфию</div>
+          <div class="msg bot">Работаем до 23:00, успеваем! Сет «Филадельфия» — 890 ₽. Оформляем? 🍣</div>
+        </div>
+        <div class="case-stats">
+          <span class="stat"><b>+18%</b><small>ночных заказов</small></span>
+          <span class="stat"><b>+12%</b><small>средний чек — допродажи</small></span>
+        </div>
+      </article>
+
+      <article class="case reveal">
+        <div class="case-top">
+          <span class="case-tag">🔧 Автосервис</span>
+          <span class="case-chan">Telegram + сайт</span>
+        </div>
+        <h3>«Гараж 77»</h3>
+        <p class="prob">Механики отвечали в чатах между ремонтами — клиенты ждали часами и уезжали к соседям.</p>
+        <div class="case-chat">
+          <div class="msg client">Сколько замена колодок на Солярис?</div>
+          <div class="msg bot">Работа — 1 200 ₽, колодки от 1 800 ₽. Могу записать на завтра, 10:00 🔧</div>
+        </div>
+        <div class="case-stats">
+          <span class="stat"><b>92%</b><small>вопросов — без механика</small></span>
+          <span class="stat"><b>+31</b><small>запись в месяц</small></span>
+        </div>
+      </article>
+
+      <article class="case reveal d1">
+        <div class="case-top">
+          <span class="case-tag">💅 Салон красоты</span>
+          <span class="case-chan">Avito + сайт</span>
+        </div>
+        <h3>Студия «Лак&amp;Го»</h3>
+        <p class="prob">На Avito отвечали раз в два часа. Пока писали ответ — клиент уже записался к конкурентам.</p>
+        <div class="case-chat">
+          <div class="msg client">Свободно на гель-лак в субботу?</div>
+          <div class="msg bot">Да! Есть 12:00 и 16:30. Какое время удобнее? 💅</div>
+        </div>
+        <div class="case-stats">
+          <span class="stat"><b>×2,1</b><small>конверсия в запись</small></span>
+          <span class="stat"><b>3 сек</b><small>ответ вместо 2 часов</small></span>
+        </div>
+      </article>
+
+      <article class="case reveal">
+        <div class="case-top">
+          <span class="case-tag">📦 Автозапчасти</span>
+          <span class="case-chan">WhatsApp</span>
+        </div>
+        <h3>«ДеталиТут»</h3>
+        <p class="prob">700 однотипных «а есть в наличии?» в месяц. Менеджеры не успевали заниматься оптовыми клиентами.</p>
+        <div class="case-chat">
+          <div class="msg client">Есть масляный фильтр на Camry 2019?</div>
+          <div class="msg bot">Есть: оригинал — 2 400 ₽, аналог — 1 100 ₽. Отложить? 📦</div>
+        </div>
+        <div class="case-stats">
+          <span class="stat"><b>700+</b><small>диалогов в месяц</small></span>
+          <span class="stat"><b>80%</b><small>закрывает без менеджера</small></span>
+        </div>
+      </article>
+
+      <article class="case reveal d1">
+        <div class="case-top">
+          <span class="case-tag">📚 Онлайн-школа</span>
+          <span class="case-chan">Telegram</span>
+        </div>
+        <h3>Школа английского «Talky»</h3>
+        <p class="prob">Администратор тратил вечера на «сколько стоит» и «когда пробный» вместо работы с учениками.</p>
+        <div class="case-chat">
+          <div class="msg client">Хочу пробный урок ребёнку, 10 лет</div>
+          <div class="msg bot">Отлично! Есть места в среду 17:00 и субботу 11:00. Куда записать? 📚</div>
+        </div>
+        <div class="case-stats">
+          <span class="stat"><b>−15 ч</b><small>рутины в неделю</small></span>
+          <span class="stat"><b>68%</b><small>лидов доходят до пробного</small></span>
+        </div>
+      </article>
+
+    </div>
+    <p class="cases-note reveal">кейсы демонстрационные — скоро заменим на реальные истории клиентов</p>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="section cta-sec dark-zone" id="cta">
+  <div class="wrap cta-in">
+    <div class="reveal">
+      <span class="eyebrow">Демо бесплатно</span>
+      <h2 style="margin-top:16px">Хотите <span class="mark y">так же</span>?</h2>
+      <p class="lead">Ваша ниша — не из списка? Неважно: схема одна и та же. Пришлите прайс — завтра протестируете ассистента, обученного под ваш бизнес.</p>
+      <div class="cta-steps">
+        <span><b>01</b> Пишете в Telegram — @webe9</span>
+        <span><b>02</b> Присылаете прайс или ссылку на сайт</span>
+        <span><b>03</b> Завтра тестируете своего ассистента</span>
+      </div>
+    </div>
+    <div class="tg-card reveal d1">
+      <span class="ava"><span class="eye"><span class="pupil"></span></span><span class="eye"><span class="pupil"></span></span></span>
+      <h3>Быстрее всего — в Telegram</h3>
+      <p>Никаких форм и ожиданий: пишете напрямую, отвечает живой человек.</p>
+      <a class="btn" href="https://t.me/webe9" target="_blank" rel="noopener">Написать @webe9</a>
+      <p class="note">отвечаем в течение часа · демо бесплатно</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ футер ============ -->
+<footer class="site-foot">
+  <div class="wrap foot-in">
+    <a class="logo" href="index.html">
+      <span class="ava"><span class="eye"><span class="pupil"></span></span><span class="eye"><span class="pupil"></span></span></span>
+      Ассистент <b>24/7</b>
+    </a>
+    <nav class="foot-links" aria-label="Футер">
+      <a href="index.html#how">Как работает</a>
+      <a href="cases.html">Кейсы</a>
+      <a href="index.html#pricing">Тарифы</a>
+      <a href="https://t.me/webe9" target="_blank" rel="noopener">Telegram: @webe9</a>
+    </nav>
+    <span class="foot-copy">© 2026 · AI-ассистент для бизнеса</span>
+  </div>
+</footer>
+
+<!-- живая кнопка -->
+<button class="fab" id="fab" aria-label="Получить демо">
+  <span class="eye"><span class="pupil"></span></span><span class="eye"><span class="pupil"></span></span>
+</button>
+
+<script src="config.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
