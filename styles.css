@@ -128,6 +128,11 @@ h2{font-size:clamp(1.55rem,3.6vw,2.5rem);font-weight:900}
 .site-head.scrolled{box-shadow:0 6px 0 rgba(22,35,46,.12)}
 .head-in{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 24px;max-width:1180px;margin:0 auto}
 .logo{display:flex;align-items:center;gap:12px;font-weight:800;text-decoration:none;font-size:1.02rem;letter-spacing:.02em}
+.logo-img{
+  width:46px;height:46px;flex:none;object-fit:contain;
+  background:#fff;border:2.5px solid var(--ink);border-radius:13px;
+  padding:3px;box-shadow:3px 3px 0 rgba(22,35,46,.25);
+}
 .logo b{font-family:var(--m);font-weight:700;font-size:.8rem;letter-spacing:.1em;background:var(--ink);color:var(--yellow);padding:4px 10px;border-radius:999px}
 .ava{
   width:44px;height:44px;border-radius:50%;background:var(--ink);
