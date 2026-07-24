@@ -92,9 +92,44 @@ if(log && suggest){
     {q:'Сколько стоит доставка по Москве?', a:'Курьером — 350 ₽, при заказе от 5 000 ₽ — бесплатно 🚚 Оформить заказ?'},
     {q:'До скольки принимаете заказы?', a:'Сегодня до 23:00 — ещё успеем доставить. Позже — оформлю на завтра, к нужному времени 📦'},
     {q:'Можно оплатить картой онлайн?', a:'Конечно! Пришлю ссылку на оплату прямо в чат — деньги сразу упадут в кассу магазина 💳'},
-    {q:'А вы точно не робот?', a:'Робот, но обученный: отвечаю строго по прайсу компании и ничего не выдумываю. Сложный вопрос сразу передам живому менеджеру 😉'}
+    {q:'А есть самовывоз?', a:'Да, бесплатно: ул. Пушкина, 10, ежедневно с 10:00 до 23:00. Соберём заказ за 30 минут 🛍️'}
   ];
   var busy = false;
+
+  /* свой ползунок прокрутки — родной скроллбар скрыт в CSS */
+  var thumb = document.getElementById('chatThumb');
+  function syncThumb(){
+    if(!thumb) return;
+    var sh = log.scrollHeight, ch = log.clientHeight;
+    if(sh <= ch + 4){ thumb.classList.remove('on'); return; }
+    thumb.classList.add('on');
+    var h = Math.max(36, ch/sh*ch);
+    var top = log.scrollTop/(sh - ch)*(ch - h);
+    thumb.style.height = h+'px';
+    thumb.style.transform = 'translateY('+top+'px)';
+  }
+  log.addEventListener('scroll', syncThumb, {passive:true});
+  addEventListener('resize', syncThumb);
+  if(thumb){
+    var dragging = false, dragY = 0, startTop = 0;
+    thumb.addEventListener('pointerdown', function(e){
+      dragging = true; dragY = e.clientY; startTop = log.scrollTop;
+      thumb.classList.add('drag');
+      thumb.setPointerCapture(e.pointerId);
+      e.preventDefault();
+    });
+    thumb.addEventListener('pointermove', function(e){
+      if(!dragging) return;
+      var sh = log.scrollHeight, ch = log.clientHeight;
+      var h = Math.max(36, ch/sh*ch);
+      var free = ch - h;
+      if(free <= 0) return;
+      log.scrollTop = startTop + (e.clientY - dragY)*((sh - ch)/free);
+    });
+    var endDrag = function(){ dragging = false; thumb.classList.remove('drag'); };
+    thumb.addEventListener('pointerup', endDrag);
+    thumb.addEventListener('pointercancel', endDrag);
+  }
 
   var now = function(){
     var d = new Date();
@@ -106,6 +141,7 @@ if(log && suggest){
     m.innerHTML = html;
     log.appendChild(m);
     log.scrollTop = log.scrollHeight;
+    syncThumb();
     return m;
   };
   var playDialog = function(d, btn, done){
@@ -124,6 +160,7 @@ if(log && suggest){
         meta.textContent = 'прочитано · '+now();
         log.appendChild(meta);
         log.scrollTop = log.scrollHeight;
+        syncThumb();
         busy = false;
         if(done) done();
       }, wait2);
