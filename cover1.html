@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 900px; overflow: hidden; }
+  body {
+    font-family: "Segoe UI", system-ui, Arial, sans-serif;
+    background: linear-gradient(160deg, #FFCE45 0%, #FFB81E 100%);
+    position: relative;
+    color: #16232E;
+  }
+  /* soft giant circle for depth, barely visible */
+  .glow {
+    position: absolute; right: -220px; top: -220px;
+    width: 720px; height: 720px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,.35), rgba(255,255,255,0) 70%);
+  }
+  .frame { position: absolute; inset: 0; padding: 64px 72px; }
+
+  /* eyebrow row */
+  .top { display: flex; align-items: center; justify-content: space-between; }
+  .brand { display: flex; align-items: center; gap: 14px; font-weight: 700; font-size: 26px; letter-spacing: .06em; }
+  .dot { width: 16px; height: 16px; border-radius: 50%; background: #17A34A; box-shadow: 0 0 0 6px rgba(23,163,74,.22); }
+  .chip247 {
+    font-weight: 800; font-size: 28px; background: #16232E; color: #FFCE45;
+    padding: 10px 24px; border-radius: 999px; letter-spacing: .04em;
+  }
+
+  h1 {
+    margin-top: 96px;
+    font-family: "Segoe UI Black", "Segoe UI", Arial, sans-serif;
+    font-weight: 900;
+    font-size: 104px;
+    line-height: 1.02;
+    letter-spacing: -0.015em;
+    max-width: 640px;
+  }
+  h1 .accent { color: #ffffff; text-shadow: 0 2px 0 rgba(22,35,46,.18); }
+
+  .chips { display: flex; flex-direction: column; gap: 18px; margin-top: 42px; align-items: flex-start; }
+  .chip {
+    background: rgba(255,255,255,.85); border: 3px solid #16232E;
+    font-weight: 700; font-size: 27px; padding: 12px 26px; border-radius: 999px;
+  }
+  .chip.free { background: #17A34A; color: #fff; border-color: #17A34A; }
+
+  /* chat card */
+  .chat {
+    position: absolute; right: 56px; top: 214px;
+    width: 470px; background: #fff; border-radius: 30px;
+    padding: 34px 30px 28px;
+    box-shadow: 0 34px 70px rgba(22,35,46,.30);
+    transform: rotate(-2.4deg);
+  }
+  .chat-head { display: flex; align-items: center; gap: 14px; margin-bottom: 24px; }
+  .ava {
+    width: 52px; height: 52px; border-radius: 50%;
+    background: #16232E; color: #FFCE45;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 900; font-size: 22px;
+  }
+  .who { font-weight: 800; font-size: 24px; }
+  .status { font-size: 19px; color: #17A34A; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+  .status::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: #17A34A; }
+
+  .msg { max-width: 88%; padding: 18px 22px; border-radius: 22px; font-size: 24.5px; line-height: 1.32; margin-bottom: 16px; }
+  .client { background: #EEF2F6; color: #24313D; border-bottom-left-radius: 8px; }
+  .bot {
+    background: #1F86FF; color: #fff; margin-left: auto;
+    border-bottom-right-radius: 8px;
+    box-shadow: 0 10px 24px rgba(31,134,255,.35);
+  }
+  .meta { text-align: right; font-size: 18px; color: #8795A1; margin-top: 2px; }
+  .caption {
+    margin-top: 20px; padding-top: 18px; border-top: 2px solid #EEF2F6;
+    font-size: 20.5px; font-weight: 700; color: #24313D;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .bolt { font-size: 24px; }
+</style>
+</head>
+<body>
+  <div class="glow"></div>
+  <div class="frame">
+    <div class="top">
+      <div class="brand"><span class="dot"></span>AI-АССИСТЕНТ ДЛЯ БИЗНЕСА</div>
+      <div class="chip247">24/7</div>
+    </div>
+
+    <h1>Отвечает клиентам <span class="accent">за&nbsp;вас</span></h1>
+
+    <div class="chips">
+      <div class="chip free">Демо бесплатно — на ваших данных</div>
+      <div class="chip">Telegram · Сайт · WhatsApp</div>
+    </div>
+  </div>
+
+  <div class="chat">
+    <div class="chat-head">
+      <div class="ava">AI</div>
+      <div>
+        <div class="who">Ассистент компании</div>
+        <div class="status">онлайн</div>
+      </div>
+    </div>
+    <div class="msg client">Здравствуйте! Сколько стоит доставка по Москве?</div>
+    <div class="msg bot">Курьером — 350 ₽, при заказе от 5 000 ₽ — бесплатно 🚚 Оформить заказ?</div>
+    <div class="meta">прочитано · 23:47</div>
+    <div class="caption"><span class="bolt">⚡</span> Ответ за 3 секунды — по вашему прайсу</div>
+  </div>
+</body>
+</html>

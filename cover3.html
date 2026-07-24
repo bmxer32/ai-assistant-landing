@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 900px; overflow: hidden; }
+  body {
+    font-family: "Segoe UI", system-ui, Arial, sans-serif;
+    background: linear-gradient(160deg, #FFCE45 0%, #FFB81E 100%);
+    position: relative;
+    color: #16232E;
+  }
+  .glow {
+    position: absolute; left: 50%; top: -300px; transform: translateX(-50%);
+    width: 900px; height: 700px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,.32), rgba(255,255,255,0) 70%);
+  }
+  .frame { position: absolute; inset: 0; padding: 64px 72px; }
+
+  .top { display: flex; align-items: center; justify-content: space-between; }
+  .brand { display: flex; align-items: center; gap: 14px; font-weight: 700; font-size: 26px; letter-spacing: .06em; }
+  .dot { width: 16px; height: 16px; border-radius: 50%; background: #17A34A; box-shadow: 0 0 0 6px rgba(23,163,74,.22); }
+  .chip247 {
+    font-weight: 800; font-size: 28px; background: #16232E; color: #FFCE45;
+    padding: 10px 24px; border-radius: 999px; letter-spacing: .04em;
+  }
+
+  h1 {
+    margin-top: 66px;
+    text-align: center;
+    font-family: "Segoe UI Black", "Segoe UI", Arial, sans-serif;
+    font-weight: 900;
+    font-size: 96px;
+    line-height: 1.04;
+    letter-spacing: -0.015em;
+  }
+  h1 .accent { color: #ffffff; text-shadow: 0 2px 0 rgba(22,35,46,.18); }
+
+  /* flow: sources -> AI -> answer */
+  .flow {
+    margin-top: 84px;
+    display: flex; align-items: center; justify-content: center; gap: 26px;
+  }
+  .src {
+    background: #fff; border-radius: 26px; padding: 26px 30px;
+    box-shadow: 0 24px 50px rgba(22,35,46,.22);
+    transform: rotate(-2deg);
+  }
+  .src-title { font-size: 20px; font-weight: 800; color: #8795A1; letter-spacing: .05em; margin-bottom: 14px; }
+  .src-row { display: flex; align-items: center; gap: 12px; font-size: 25px; font-weight: 700; margin-top: 10px; }
+  .arrow {
+    font-family: "Segoe UI Black", "Segoe UI", Arial, sans-serif;
+    font-weight: 900; font-size: 74px; line-height: 1; padding-bottom: 8px;
+  }
+  .ai {
+    width: 148px; height: 148px; border-radius: 50%;
+    background: #16232E; color: #FFCE45; flex-shrink: 0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    box-shadow: 0 24px 50px rgba(22,35,46,.30);
+    font-weight: 900; font-size: 44px;
+  }
+  .ai small { font-size: 17px; font-weight: 700; color: #FFE9A8; margin-top: 2px; letter-spacing: .06em; }
+  .answer {
+    position: relative;
+    background: #1F86FF; color: #fff; border-radius: 26px;
+    border-bottom-left-radius: 10px;
+    padding: 26px 30px; max-width: 360px;
+    font-size: 26px; line-height: 1.35; font-weight: 600;
+    box-shadow: 0 24px 50px rgba(31,134,255,.38);
+    transform: rotate(1.6deg);
+  }
+  .answer .time { display: block; text-align: right; font-size: 18px; color: #CFE4FF; margin-top: 10px; font-weight: 600; }
+
+  .bottom {
+    position: absolute; left: 0; right: 0; bottom: 58px;
+    display: flex; justify-content: center; gap: 18px;
+  }
+  .chip {
+    background: rgba(255,255,255,.85); border: 3px solid #16232E;
+    font-weight: 700; font-size: 27px; padding: 12px 28px; border-radius: 999px;
+  }
+  .chip.free { background: #17A34A; color: #fff; border-color: #17A34A; }
+</style>
+</head>
+<body>
+  <div class="glow"></div>
+  <div class="frame">
+    <div class="top">
+      <div class="brand"><span class="dot"></span>AI-АССИСТЕНТ ДЛЯ БИЗНЕСА</div>
+      <div class="chip247">24/7</div>
+    </div>
+
+    <h1>Знает ваш бизнес <span class="accent">наизусть</span></h1>
+
+    <div class="flow">
+      <div class="src">
+        <div class="src-title">ВАШИ МАТЕРИАЛЫ</div>
+        <div class="src-row">🌐 Сайт компании</div>
+        <div class="src-row">📄 Прайс и услуги</div>
+        <div class="src-row">💬 Частые вопросы</div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="ai">AI<small>ОБУЧЕНИЕ</small></div>
+      <div class="arrow">→</div>
+      <div class="answer">
+        Стрижка + борода — 1&nbsp;500&nbsp;₽. Записать вас на 18:00? ✂️
+        <span class="time">ответ клиенту · за 3 сек</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom">
+    <div class="chip free">Обучается за 1 день</div>
+    <div class="chip">Отвечает только по вашим данным</div>
+  </div>
+</body>
+</html>
