@@ -505,23 +505,37 @@ input[type=range]::-moz-range-thumb{
 .plan .btn{width:100%}
 .price-foot{margin-top:36px;text-align:center;font-family:var(--m);font-size:.8rem;color:var(--muted)}
 
-/* ============ FAQ ============ */
+/* ============ FAQ — переписка с ассистентом ============ */
 .faq-sec{background:var(--paper)}
-.faq{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
-.qa{background:var(--white);border:var(--line);border-radius:20px;overflow:hidden;box-shadow:5px 5px 0 rgba(22,35,46,.12)}
-.qa-btn{
-  width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;
-  padding:20px 24px;text-align:left;font-weight:800;font-size:1.02rem;
+.faq-in{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:start}
+.faq-head{position:sticky;top:110px}
+.faq-head h2{margin-top:16px}
+.faq-head p{margin-top:14px;font-size:1.05rem;color:var(--muted);max-width:36ch}
+.faq-more{font-size:.95rem}
+.faq-more a{font-weight:800;color:var(--ink)}
+.faq-chat{display:flex;flex-direction:column;gap:14px}
+.fq-q{
+  display:block;text-align:left;max-width:88%;
+  background:#EEF2F6;color:#24313D;
+  padding:16px 22px;border-radius:20px;border-bottom-left-radius:7px;
+  font-weight:700;font-size:1rem;line-height:1.4;
+  border:2.5px solid transparent;
+  transition:transform .15s ease, border-color .15s ease, background .15s ease;
 }
-.qa-btn .plus{
-  flex:none;width:34px;height:34px;border-radius:50%;border:2.5px solid var(--ink);
-  display:flex;align-items:center;justify-content:center;
-  font-size:1.2rem;font-weight:600;line-height:1;
-  transition:transform .25s ease, background .25s ease;
+.fq-q:hover{transform:translateX(5px);border-color:var(--ink);background:var(--white)}
+.fq.open .fq-q{border-color:var(--ink);background:var(--white)}
+.fq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.fq-a-in{display:flex;justify-content:flex-end;padding:12px 0 6px}
+.fq-bubble{
+  background:var(--blue);color:#fff;max-width:88%;
+  padding:15px 20px;border-radius:20px;border-bottom-right-radius:7px;
+  font-size:.98rem;line-height:1.45;
+  box-shadow:0 10px 24px rgba(31,134,255,.3);
 }
-.qa.open .qa-btn .plus{transform:rotate(45deg);background:var(--yellow)}
-.qa-body{max-height:0;overflow:hidden;transition:max-height .3s ease}
-.qa-body p{padding:0 24px 22px;color:var(--muted);font-size:.97rem;max-width:60ch}
+.fq-bubble.typing{display:inline-flex;gap:5px;align-items:center;padding:17px 20px}
+.fq-bubble.typing i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.85);animation:blink 1s infinite}
+.fq-bubble.typing i:nth-child(2){animation-delay:.18s}
+.fq-bubble.typing i:nth-child(3){animation-delay:.36s}
 
 /* ============ CTA (телеграм) ============ */
 .cta-sec{background:linear-gradient(180deg,var(--ink) 0%,var(--ink-2) 100%);color:#F4F7FA;position:relative;overflow:hidden}
@@ -579,6 +593,8 @@ input[type=range]::-moz-range-thumb{
   .hero h1{max-width:16ch}
   .chat{transform:rotate(-1.2deg);max-width:560px}
   .night-in,.cta-in{grid-template-columns:1fr;gap:44px}
+  .faq-in{grid-template-columns:1fr;gap:40px}
+  .faq-head{position:static}
   .feat-grid{grid-template-columns:repeat(2,1fr)}
   .case-grid{grid-template-columns:1fr}
   .price-grid{grid-template-columns:1fr;max-width:520px;margin:0 auto}

@@ -226,14 +226,32 @@ if(rLeads && rCheck && lossOut){
   calc();
 }
 
-/* ---------- FAQ ---------- */
-document.querySelectorAll('.qa').forEach(function(qa){
-  var btn = qa.querySelector('.qa-btn');
-  var body = qa.querySelector('.qa-body');
+/* ---------- FAQ: вопрос — пузырь клиента, ответ «печатает» ассистент ---------- */
+document.querySelectorAll('.fq').forEach(function(fq){
+  var btn = fq.querySelector('.fq-q');
+  var wrap = fq.querySelector('.fq-a');
+  var bubble = fq.querySelector('.fq-bubble');
+  var answered = false; /* печатаем только при первом открытии */
   btn.addEventListener('click', function(){
-    var open = qa.classList.toggle('open');
+    var open = fq.classList.toggle('open');
     btn.setAttribute('aria-expanded', open);
-    body.style.maxHeight = open ? body.scrollHeight+'px' : 0;
+    if(!open){ wrap.style.maxHeight = 0; return; }
+    if(answered || reduced){
+      answered = true;
+      wrap.style.maxHeight = wrap.scrollHeight+'px';
+      return;
+    }
+    answered = true;
+    var text = bubble.textContent;
+    bubble.classList.add('typing');
+    bubble.innerHTML = '<i></i><i></i><i></i>';
+    wrap.style.maxHeight = wrap.scrollHeight+'px';
+    setTimeout(function(){
+      bubble.classList.remove('typing');
+      bubble.textContent = text;
+      /* не раскрываем обратно, если вопрос успели закрыть во время «печатания» */
+      if(fq.classList.contains('open')) wrap.style.maxHeight = wrap.scrollHeight+'px';
+    }, 700 + Math.random()*300);
   });
 });
 
