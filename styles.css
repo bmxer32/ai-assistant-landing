@@ -81,6 +81,9 @@ h2{font-size:clamp(1.55rem,3.6vw,2.5rem);font-weight:900}
 .cut::before{background:var(--cut-line,#C2CEDA);transform:translateY(2px)}
 .cut::after{background:var(--cut)}
 .cut.r::before,.cut.r::after{clip-path:polygon(0 0,100% 0,100% 100%)}
+
+/* та же линия на ровном горизонтальном стыке секций */
+.hline{border-top:2px solid var(--cut-line,#C2CEDA)}
 .bg-cream{background:var(--cream)}
 .sec-head{max-width:640px;margin-bottom:52px}
 .sec-head h2{margin-top:16px}
