@@ -373,7 +373,9 @@ h2{font-size:clamp(1.55rem,3.6vw,2.5rem);font-weight:900}
 .t-time{margin-left:auto;font-family:var(--m);font-size:.78rem;color:#8795A1;font-weight:700}
 
 /* ============ калькулятор ============ */
-.calc-sec{background:linear-gradient(160deg,var(--yellow) 0%,var(--yellow-2) 100%)}
+/* градиент строго вертикальный: нижняя кромка = var(--yellow-2),
+   чтобы совпадать с цветом клина следующей секции */
+.calc-sec{background:linear-gradient(180deg,var(--yellow) 0%,var(--yellow-2) 100%)}
 .calc{
   display:grid;grid-template-columns:1.05fr .95fr;gap:0;
   background:var(--white);border:var(--line);border-radius:var(--r);
