@@ -67,14 +67,20 @@ h2{font-size:clamp(1.55rem,3.6vw,2.5rem);font-weight:900}
 
 /* диагональный срез на стыке цветных блоков:
    --cut = цвет ПРЕДЫДУЩЕЙ секции, клин врезается в текущую.
-   top:-1px прячет антиалиасную кромку тонкого конца клина в цвете верхней секции */
+   ::before — серая линия-разделитель, сдвинутая на 2px вниз и потому
+   выглядывающая тонкой полоской ровно по кромке среза.
+   top:-1px прячет антиалиасную кромку тонкого конца клина. */
 .cut{
   position:absolute;top:-1px;left:0;right:0;z-index:2;pointer-events:none;
   height:clamp(26px,4.5vw,58px);
-  background:var(--cut);
+}
+.cut::before,.cut::after{
+  content:"";position:absolute;inset:0;
   clip-path:polygon(0 0,100% 0,0 100%);
 }
-.cut.r{clip-path:polygon(0 0,100% 0,100% 100%)}
+.cut::before{background:var(--cut-line,#C2CEDA);transform:translateY(2px)}
+.cut::after{background:var(--cut)}
+.cut.r::before,.cut.r::after{clip-path:polygon(0 0,100% 0,100% 100%)}
 .bg-cream{background:var(--cream)}
 .sec-head{max-width:640px;margin-bottom:52px}
 .sec-head h2{margin-top:16px}
