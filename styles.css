@@ -577,13 +577,34 @@ input[type=range]::-moz-range-thumb{
 .tg-card .note{margin-top:16px;font-family:var(--m);font-size:.72rem;color:var(--muted)}
 
 /* ============ футер ============ */
-.site-foot{background:var(--ink-2);color:#8FA1B3;padding:44px 0 110px}
-.foot-in{display:flex;flex-wrap:wrap;gap:28px;justify-content:space-between;align-items:center}
-.foot-in .logo{color:#F4F7FA}
-.foot-links{display:flex;flex-wrap:wrap;gap:20px;font-size:.9rem}
-.foot-links a{text-decoration:none}
-.foot-links a:hover{color:var(--yellow)}
-.foot-copy{font-family:var(--m);font-size:.72rem}
+.site-foot{background:var(--ink-2);color:#8FA1B3;padding:56px 0 110px}
+.foot-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:44px}
+.foot-brand .logo{color:#F4F7FA;margin-bottom:16px}
+.foot-about{font-size:.93rem;line-height:1.6;max-width:32ch}
+.foot-stats{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.foot-stat{
+  font-family:var(--m);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;
+  background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.16);
+  border-radius:999px;padding:6px 12px;color:#B9C6D2;
+}
+.foot-col h4{
+  font-family:var(--m);font-size:.72rem;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--yellow);
+  margin-bottom:15px;
+}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+.foot-col a{text-decoration:none;font-size:.94rem;transition:color .15s}
+.foot-col a:hover{color:var(--yellow)}
+.foot-contact a{font-weight:700;color:#F4F7FA}
+.foot-hours{margin-top:14px;font-size:.85rem;line-height:1.6}
+.foot-hours b{color:var(--green);font-weight:700}
+.foot-bottom{
+  margin-top:46px;padding-top:24px;border-top:1.5px solid rgba(255,255,255,.1);
+  display:flex;flex-wrap:wrap;gap:16px 28px;justify-content:space-between;align-items:center;
+}
+.foot-legal{font-family:var(--m);font-size:.72rem;line-height:1.8}
+.foot-bottom a{text-decoration:none;font-size:.85rem}
+.foot-bottom a:hover{color:var(--yellow)}
 
 /* ============ FAB — живая кнопка с глазами ============ */
 .fab{
@@ -613,6 +634,7 @@ input[type=range]::-moz-range-thumb{
   .night-in,.cta-in{grid-template-columns:1fr;gap:44px}
   .faq-in{grid-template-columns:1fr;gap:40px}
   .faq-head{position:static}
+  .foot-top{grid-template-columns:1fr 1fr;gap:36px}
   .feat-grid{grid-template-columns:repeat(2,1fr)}
   .case-grid{grid-template-columns:1fr}
   .price-grid{grid-template-columns:1fr;max-width:520px;margin:0 auto}
@@ -634,6 +656,8 @@ input[type=range]::-moz-range-thumb{
   .fab::after{display:none}
   .tg-card{transform:none;padding:30px 22px}
   .t-time{display:none}
+  .foot-top{grid-template-columns:1fr;gap:32px}
+  .site-foot{padding:44px 0 100px}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
