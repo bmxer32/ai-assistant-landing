@@ -244,22 +244,7 @@ h2{font-size:clamp(1.55rem,3.6vw,2.5rem);font-weight:900}
 .msg.typing i:nth-child(3){animation-delay:.36s}
 @keyframes blink{0%,60%,100%{opacity:.35;transform:translateY(0)}30%{opacity:1;transform:translateY(-3px)}}
 .msg-meta{font-family:var(--m);font-size:.68rem;color:#8795A1;align-self:flex-end;margin-top:-6px}
-.chat-input{display:flex;gap:8px;padding:12px 2px 4px;border-top:2px solid #EEF2F6}
-.chat-input input{
-  flex:1;min-width:0;border:2.5px solid var(--ink);border-radius:999px;
-  padding:10px 16px;font:inherit;font-size:.92rem;background:var(--paper);
-}
-.chat-input input:focus{outline:none;box-shadow:3px 3px 0 var(--yellow)}
-.chat-input button{
-  width:44px;height:44px;flex:none;border-radius:50%;
-  background:var(--green);color:#fff;border:2.5px solid var(--ink);
-  font-size:1.05rem;box-shadow:3px 3px 0 rgba(22,35,46,.3);
-  transition:transform .15s ease;
-  display:flex;align-items:center;justify-content:center;
-}
-.chat-input button:hover{transform:translate(-1px,-1px)}
-.chat-input button:disabled{opacity:.4;transform:none;cursor:default}
-.chat-suggest{display:flex;flex-wrap:wrap;gap:8px;padding:10px 2px 6px}
+.chat-suggest{display:flex;flex-wrap:wrap;gap:8px;padding:14px 2px 6px;border-top:2px solid #EEF2F6}
 .chat-suggest .hint{width:100%;font-family:var(--m);font-size:.68rem;color:#8795A1;letter-spacing:.06em;text-transform:uppercase}
 .q-chip{
   border:2px solid var(--ink);border-radius:999px;padding:8px 14px;
