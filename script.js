@@ -42,7 +42,7 @@ var io = new IntersectionObserver(function(es){
     if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
   });
 },{threshold:.18});
-document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+document.querySelectorAll('.reveal, .pop-card').forEach(function(el){ io.observe(el); });
 
 /* ---------- звёзды в ночной секции ---------- */
 var stars = document.querySelector('.night .stars');
