@@ -63,7 +63,19 @@ body::after{
 }
 h1,h2{font-family:var(--d);line-height:1.08;letter-spacing:-.01em}
 h2{font-size:clamp(1.55rem,3.6vw,2.5rem);font-weight:900}
-.section{padding:96px 0}
+.section{padding:96px 0;position:relative}
+
+/* зубчатый «край чека» на стыках цветных блоков:
+   --tear = цвет ПРЕДЫДУЩЕЙ секции, зубцы врезаются в текущую */
+.tear{
+  position:absolute;top:0;left:0;right:0;height:13px;z-index:2;pointer-events:none;
+  background:
+    linear-gradient(-45deg, var(--tear) 9.5px, transparent 0),
+    linear-gradient(45deg, var(--tear) 9.5px, transparent 0);
+  background-position:left bottom;
+  background-repeat:repeat-x;
+  background-size:26px 26px;
+}
 .sec-head{max-width:640px;margin-bottom:52px}
 .sec-head h2{margin-top:16px}
 .sec-head p{margin-top:14px;font-size:1.05rem;color:var(--muted)}
