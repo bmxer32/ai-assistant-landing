@@ -122,10 +122,10 @@ h2{font-size:clamp(1.55rem,3.6vw,2.5rem);font-weight:900}
 .site-head{
   position:sticky;top:0;z-index:1000;
   background:var(--yellow);
-  border-bottom:3px solid transparent;
-  transition:border-color .2s, box-shadow .2s;
+  border-bottom:3px solid var(--ink);
+  transition:box-shadow .2s;
 }
-.site-head.scrolled{border-bottom-color:var(--ink);box-shadow:0 6px 0 rgba(22,35,46,.12)}
+.site-head.scrolled{box-shadow:0 6px 0 rgba(22,35,46,.12)}
 .head-in{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 24px;max-width:1180px;margin:0 auto}
 .logo{display:flex;align-items:center;gap:12px;font-weight:800;text-decoration:none;font-size:1.02rem;letter-spacing:.02em}
 .logo b{font-family:var(--m);font-weight:700;font-size:.8rem;letter-spacing:.1em;background:var(--ink);color:var(--yellow);padding:4px 10px;border-radius:999px}
