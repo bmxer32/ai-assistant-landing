@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Обложки для Avito, набор Б — исходник</title>
+<!--
+  Второй набор обложек, 1200×900 CSS-пикселей → PNG 2400×1800 (4:3).
+  Рендерится скриптом render-b.js.
+
+  Смыслы намеренно не пересекаются с первым набором: там «что это,
+  ночью, скорость, запуск, цена, Avito» — здесь про надёжность и
+  границы ответственности ассистента. Вёрстка тоже другая: центрированные
+  композиции, сетка возможностей, карточка отчёта.
+
+  Контактов на обложках нет — Avito запрещает их в фотографиях и
+  распознаёт текст автоматически. Подписи в углу нет по просьбе.
+
+  Стиль общий с лендингом: Unbounded, толстая чернильная обводка,
+  жёсткая тень без размытия, лёгкие наклоны.
+-->
+<style>
+  @font-face{font-family:'Unbounded';font-weight:900;src:url(../fonts/unbounded-900-cyrillic.woff2) format('woff2')}
+  @font-face{font-family:'Unbounded';font-weight:700;src:url(../fonts/unbounded-700-cyrillic.woff2) format('woff2')}
+  @font-face{font-family:'Golos Text';font-weight:400;src:url(../fonts/golos-text-400-cyrillic.woff2) format('woff2')}
+  @font-face{font-family:'Golos Text';font-weight:600;src:url(../fonts/golos-text-600-cyrillic.woff2) format('woff2')}
+  @font-face{font-family:'Golos Text';font-weight:700;src:url(../fonts/golos-text-700-cyrillic.woff2) format('woff2')}
+  @font-face{font-family:'Golos Text';font-weight:800;src:url(../fonts/golos-text-800-cyrillic.woff2) format('woff2')}
+  @font-face{font-family:'JetBrains Mono';font-weight:700;src:url(../fonts/jetbrains-mono-700-cyrillic.woff2) format('woff2')}
+
+  :root{
+    --yellow:#FFCE45; --yellow-2:#FFB81E;
+    --ink:#16232E; --ink-2:#0E1926;
+    --green:#17A34A; --blue:#1F86FF;
+    --cream:#FFF6E3; --paper:#FFFDF6; --white:#fff;
+    --muted:#5B6B7A;
+    --d:'Unbounded',sans-serif;
+    --b:'Golos Text','Segoe UI',sans-serif;
+    --m:'JetBrains Mono',monospace;
+    --line:6px solid var(--ink);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#8894a0;font-family:var(--b);display:flex;flex-direction:column;align-items:center;gap:40px;padding:40px}
+
+  .cover{width:1200px;height:900px;position:relative;overflow:hidden;color:var(--ink);display:flex;flex-direction:column;padding:58px 62px}
+  .cover.sun{background:linear-gradient(150deg,var(--yellow) 0%,var(--yellow-2) 100%)}
+  .cover.dark{background:linear-gradient(200deg,var(--ink) 0%,var(--ink-2) 100%);color:#F4F7FA}
+  .cover.paper{background:var(--cream)}
+  .cover.mint{background:linear-gradient(160deg,#1FB35A 0%,#0E8A3C 100%);color:#fff}
+  .glow{position:absolute;left:50%;top:-340px;transform:translateX(-50%);width:1020px;height:760px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.3),rgba(255,255,255,0) 70%)}
+
+  .kicker{font-family:var(--m);font-weight:700;font-size:21px;letter-spacing:.09em;text-transform:uppercase;display:flex;align-items:center;gap:13px;position:relative;z-index:2}
+  .kicker .dot{width:14px;height:14px;border-radius:50%;background:var(--green);box-shadow:0 0 0 6px rgba(23,163,74,.22)}
+  .mint .kicker .dot,.dark .kicker .dot{background:var(--yellow);box-shadow:0 0 0 6px rgba(255,206,69,.22)}
+
+  h1{font-family:var(--d);font-weight:900;line-height:1.03;letter-spacing:-.022em;position:relative;z-index:2}
+  .hl{background:var(--yellow);padding:0 16px;border-radius:16px;color:var(--ink)}
+  .wh{color:#fff;text-shadow:0 4px 0 rgba(22,35,46,.16)}
+  .ye{color:var(--yellow)}
+  .sub{font-size:27px;font-weight:600;line-height:1.45;margin-top:22px;position:relative;z-index:2;max-width:34ch}
+  .dark .sub,.mint .sub{color:rgba(255,255,255,.86)}
+
+  .feet{display:flex;gap:16px;align-items:center;margin-top:auto;position:relative;z-index:2;flex-wrap:wrap}
+  .chip{background:rgba(255,255,255,.94);border:5px solid var(--ink);font-weight:800;font-size:23px;padding:13px 28px;border-radius:999px}
+  .chip.green{background:var(--green);color:#fff}
+  .dark .chip{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.4);color:#F4F7FA}
+  .mint .chip{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.55);color:#fff}
+  .mint .chip.solid{background:#fff;color:var(--ink);border-color:#fff}
+
+  /* Б1 — ни одна заявка не теряется: центр, крупный чат */
+  .center{align-items:center;text-align:center}
+  .bubbles{display:flex;flex-direction:column;gap:14px;width:640px;margin:auto 0;position:relative;z-index:2}
+  .bub{
+    background:var(--paper);border:var(--line);border-radius:30px;padding:20px 26px;
+    font-size:24px;font-weight:700;box-shadow:12px 12px 0 var(--ink);display:flex;align-items:center;gap:16px;
+  }
+  .bub:nth-child(odd){transform:rotate(-.8deg)}
+  .bub:nth-child(even){transform:rotate(.8deg);background:var(--blue);color:#fff;box-shadow:12px 12px 0 var(--ink)}
+  .bub .when{margin-left:auto;font-family:var(--m);font-size:18px;font-weight:700;opacity:.65;white-space:nowrap}
+
+  /* Б2 — календарь */
+  .cal{display:grid;grid-template-columns:repeat(7,1fr);gap:11px;width:620px;margin:auto 0;position:relative;z-index:2}
+  .day{
+    background:rgba(255,255,255,.12);border:3px solid rgba(255,255,255,.3);border-radius:16px;
+    height:74px;display:flex;align-items:center;justify-content:center;
+    font-family:var(--m);font-weight:700;font-size:22px;color:rgba(255,255,255,.75);
+  }
+  .day.on{background:var(--green);border-color:var(--ink);color:#fff;box-shadow:5px 5px 0 var(--ink)}
+  .day.hol{background:var(--yellow);border-color:var(--ink);color:var(--ink);box-shadow:5px 5px 0 var(--ink)}
+
+  /* Б3 — сетка возможностей */
+  .grid6{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:auto 0;position:relative;z-index:2}
+  .cell{
+    background:var(--white);border:var(--line);border-radius:28px;padding:24px 22px;
+    box-shadow:11px 11px 0 rgba(22,35,46,.15);
+  }
+  .cell:nth-child(2n){transform:rotate(.9deg)}
+  .cell:nth-child(3n){transform:rotate(-.9deg)}
+  .cell .ic{font-size:40px}
+  .cell b{display:block;font-family:var(--d);font-weight:700;font-size:21px;margin-top:10px;line-height:1.2}
+
+  /* Б4 — прайс, строго по данным */
+  .proof{display:flex;gap:24px;margin:auto 0;position:relative;z-index:2;width:100%}
+  .pcard{
+    flex:1;background:var(--white);border:var(--line);border-radius:32px;padding:28px 26px;
+    box-shadow:13px 13px 0 rgba(22,35,46,.15);
+  }
+  .pcard.no{transform:rotate(-1deg)}
+  .pcard.yes{transform:rotate(1deg);background:var(--ink);color:#fff;box-shadow:13px 13px 0 var(--green)}
+  .pcard .lb{font-family:var(--m);font-weight:700;font-size:17px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+  .pcard.yes .lb{color:var(--yellow)}
+  .pcard .q{font-size:22px;font-weight:700;margin-top:14px;line-height:1.35}
+  .pcard .a{font-size:22px;font-weight:600;margin-top:14px;line-height:1.38;color:var(--muted)}
+  .pcard.yes .a{color:#B9C6D2}
+
+  /* Б5 — утренний отчёт */
+  .report{
+    width:490px;flex:none;background:var(--white);border:var(--line);border-radius:38px;padding:30px 32px;
+    box-shadow:16px 16px 0 var(--yellow);transform:rotate(1.1deg);color:var(--ink);
+    position:relative;z-index:2;
+  }
+  .report .rh{font-family:var(--m);font-weight:700;font-size:19px;color:var(--muted);letter-spacing:.05em;text-transform:uppercase}
+  .report .rrow{display:flex;align-items:center;gap:14px;padding:15px 0;border-bottom:3px dashed #E1E7EC;font-size:23px;font-weight:700}
+  .report .rrow:last-child{border:0;padding-bottom:0}
+  .report .rrow .n{margin-left:auto;font-family:var(--d);font-weight:900;font-size:30px}
+
+  /* Б6 — передаёт человеку */
+  .hand{display:flex;align-items:center;gap:22px;margin:auto 0;position:relative;z-index:2;width:100%}
+  .hbox{
+    flex:1;background:var(--white);border:var(--line);border-radius:32px;padding:28px 26px;
+    box-shadow:13px 13px 0 rgba(22,35,46,.15);text-align:center;
+  }
+  .hbox .ic{font-size:52px}
+  .hbox b{display:block;font-family:var(--d);font-weight:700;font-size:23px;margin-top:12px;line-height:1.2}
+  .hbox p{font-size:19px;color:var(--muted);margin-top:9px;line-height:1.35}
+  .arrow{font-family:var(--d);font-weight:900;font-size:60px;flex:none;color:var(--ink)}
+</style>
+</head>
+<body>
+
+<!-- ============ Б1: ни одна заявка не теряется ============ -->
+<div class="cover sun center" id="b1">
+  <div class="glow"></div>
+  <div class="kicker"><span class="dot"></span>Ни одного пропущенного сообщения</div>
+  <h1 style="font-size:70px;margin-top:22px">Клиент написал —<br><span class="wh">ответ уже есть</span></h1>
+  <div class="bubbles">
+    <div class="bub">Здравствуйте, вы работаете?<span class="when">22:14</span></div>
+    <div class="bub">Да, принимаю заказы круглосуточно 🙌<span class="when">22:14</span></div>
+    <div class="bub">А доставка сегодня успеет?<span class="when">22:15</span></div>
+    <div class="bub">Успеем до 23:00. Оформляю?<span class="when">22:15</span></div>
+  </div>
+  <div class="feet" style="justify-content:center">
+    <div class="chip green">Отвечает за 3 секунды</div>
+    <div class="chip">Telegram · WhatsApp · Сайт · Avito</div>
+  </div>
+</div>
+
+<!-- ============ Б2: работает всегда ============ -->
+<div class="cover dark" id="b2">
+  <div class="kicker"><span class="dot"></span>Без выходных и отпусков</div>
+  <h1 style="font-size:72px;margin-top:22px">Праздники, отпуск,<br>ночь — <span class="ye">неважно</span></h1>
+  <p class="sub">Не болеет, не опаздывает, не забывает ответить. Пока вы отдыхаете, заявки продолжают приходить обработанными.</p>
+  <div class="cal">
+    <div class="day on">пн</div><div class="day on">вт</div><div class="day on">ср</div>
+    <div class="day on">чт</div><div class="day on">пт</div><div class="day hol">сб</div><div class="day hol">вс</div>
+    <div class="day on">00</div><div class="day on">03</div><div class="day on">06</div>
+    <div class="day on">09</div><div class="day on">12</div><div class="day on">18</div><div class="day on">23</div>
+  </div>
+  <div class="feet">
+    <div class="chip green">Работает 24/7</div>
+    <div class="chip">Демо бесплатно</div>
+  </div>
+</div>
+
+<!-- ============ Б3: что умеет ============ -->
+<div class="cover paper" id="b3">
+  <div class="kicker"><span class="dot"></span>Что умеет ассистент</div>
+  <h1 style="font-size:66px;margin-top:20px">Не просто отвечает —<br><span class="hl">доводит до заказа</span></h1>
+  <div class="grid6">
+    <div class="cell"><div class="ic">💬</div><b>Отвечает по вашему прайсу</b></div>
+    <div class="cell"><div class="ic">📅</div><b>Записывает клиентов</b></div>
+    <div class="cell"><div class="ic">💳</div><b>Принимает заказы и оплату</b></div>
+    <div class="cell"><div class="ic">📦</div><b>Проверяет наличие</b></div>
+    <div class="cell"><div class="ic">🙋</div><b>Зовёт вас, если сложно</b></div>
+    <div class="cell"><div class="ic">📊</div><b>Присылает отчёт</b></div>
+  </div>
+  <div class="feet">
+    <div class="chip green">Обучается за 1 день</div>
+    <div class="chip">Демо бесплатно — на ваших данных</div>
+  </div>
+</div>
+
+<!-- ============ Б4: не выдумывает ============ -->
+<div class="cover sun" id="b4">
+  <div class="glow"></div>
+  <div class="kicker"><span class="dot"></span>Отвечает только по вашим данным</div>
+  <h1 style="font-size:68px;margin-top:20px">Не выдумывает<br><span class="wh">цен и сроков</span></h1>
+  <div class="proof">
+    <div class="pcard no">
+      <div class="lb">Обычный чат-бот</div>
+      <div class="q">— Сколько стоит выезд за город?</div>
+      <div class="a">— Ориентировочно около 2 000 ₽<br><b style="color:#D93025">(цифра взята из воздуха)</b></div>
+    </div>
+    <div class="pcard yes">
+      <div class="lb">Ваш ассистент</div>
+      <div class="q">— Сколько стоит выезд за город?</div>
+      <div class="a">— В прайсе этого нет, уточню у мастера и вернусь с точной ценой 🤝</div>
+    </div>
+  </div>
+  <div class="feet">
+    <div class="chip green">Обучен на ваших материалах</div>
+    <div class="chip">Не обещает лишнего</div>
+  </div>
+</div>
+
+<!-- ============ Б5: утренний отчёт ============ -->
+<div class="cover mint" id="b5">
+  <div class="kicker"><span class="dot"></span>Утренний отчёт</div>
+  <div style="display:flex;gap:44px;align-items:center;flex:1;margin-top:12px">
+    <div style="flex:1;min-width:0">
+      <!-- 48px: колонка узкая из-за карточки отчёта, на большем кегле
+           заголовок разваливается на четыре строки -->
+      <h1 style="font-size:48px;color:#fff">Утром вам —<br>только <span class="ye">итоги</span></h1>
+      <p class="sub" style="font-size:25px">Никаких «разгребу переписку за завтраком». Всё, что случилось ночью, приходит одним сообщением.</p>
+    </div>
+    <div class="report">
+      <div class="rh">Сводка за ночь</div>
+      <div class="rrow">💬 Диалогов<span class="n">7</span></div>
+      <div class="rrow">✅ Заказов<span class="n">2</span></div>
+      <div class="rrow">📅 Записей<span class="n">3</span></div>
+      <div class="rrow">🙋 Ждут вас<span class="n">1</span></div>
+    </div>
+  </div>
+  <div class="feet">
+    <div class="chip solid">Отчёт каждое утро</div>
+    <div class="chip">Демо бесплатно</div>
+  </div>
+</div>
+
+<!-- ============ Б6: передаёт человеку ============ -->
+<div class="cover paper" id="b6">
+  <div class="kicker"><span class="dot"></span>Границы ответственности</div>
+  <h1 style="font-size:64px;margin-top:20px">Сложное <span class="hl">отдаёт вам</span></h1>
+  <p class="sub">Ассистент не пытается быть умнее вас. Нестандартный вопрос — честно говорит об этом и передаёт диалог живому человеку вместе со всей перепиской.</p>
+  <div class="hand">
+    <div class="hbox"><div class="ic">🤖</div><b>Типовое — сам</b><p>Цены, сроки, наличие, запись, оформление заказа</p></div>
+    <div class="arrow">→</div>
+    <div class="hbox"><div class="ic">🙋</div><b>Сложное — вам</b><p>Нестандартный запрос, спорная ситуация, крупный клиент</p></div>
+  </div>
+  <div class="feet">
+    <div class="chip green">Вы всегда в курсе</div>
+    <div class="chip">Переписка сохраняется</div>
+  </div>
+</div>
+
+</body>
+</html>
