@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>OG-превью — исходник для og.png</title>
+<style>
+  /* Исходник картинки для соцсетей: 1200×630, рендерится в og.png.
+     Шрифты локальные — те же, что на лендинге. */
+  @font-face{font-family:'Unbounded';font-weight:900;src:url(fonts/unbounded-900-cyrillic.woff2) format('woff2')}
+  @font-face{font-family:'Golos Text';font-weight:700;src:url(fonts/golos-text-700-cyrillic.woff2) format('woff2')}
+  @font-face{font-family:'Golos Text';font-weight:800;src:url(fonts/golos-text-800-cyrillic.woff2) format('woff2')}
+  @font-face{font-family:'JetBrains Mono';font-weight:700;src:url(fonts/jetbrains-mono-700-cyrillic.woff2) format('woff2')}
+
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1200px;height:630px;overflow:hidden}
+  body{
+    font-family:'Golos Text','Segoe UI',system-ui,sans-serif;
+    color:#16232E;
+    background:linear-gradient(158deg,#FFCE45 0%,#FFB81E 100%);
+    position:relative;
+  }
+  .glow{
+    position:absolute;left:52%;top:-320px;transform:translateX(-50%);
+    width:1000px;height:720px;border-radius:50%;
+    background:radial-gradient(circle,rgba(255,255,255,.34),rgba(255,255,255,0) 70%);
+  }
+  .frame{position:absolute;inset:0;padding:52px 64px;display:flex;flex-direction:column}
+
+  .top{display:flex;align-items:center;justify-content:space-between}
+  .brand{
+    display:flex;align-items:center;gap:13px;
+    font-family:'JetBrains Mono',monospace;font-weight:700;
+    font-size:21px;letter-spacing:.07em;text-transform:uppercase;
+  }
+  .dot{width:14px;height:14px;border-radius:50%;background:#17A34A;box-shadow:0 0 0 6px rgba(23,163,74,.22)}
+  .chip247{
+    font-family:'Unbounded',sans-serif;font-weight:900;font-size:25px;
+    background:#16232E;color:#FFCE45;padding:11px 26px;border-radius:999px;letter-spacing:.03em;
+  }
+
+  .body{flex:1;display:flex;align-items:center;gap:52px;margin-top:26px}
+
+  h1{
+    font-family:'Unbounded',sans-serif;font-weight:900;
+    font-size:74px;line-height:1.02;letter-spacing:-.02em;
+  }
+  h1 .accent{color:#fff;text-shadow:0 3px 0 rgba(22,35,46,.16)}
+  .sub{
+    margin-top:24px;font-size:27px;font-weight:700;line-height:1.4;
+    color:#3A4B59;max-width:520px;
+  }
+
+  /* карточка диалога — та же метафора, что в первом экране лендинга */
+  .chat{
+    flex-shrink:0;width:410px;background:#FFFDF6;
+    border:4px solid #16232E;border-radius:26px;padding:24px;
+    box-shadow:9px 9px 0 #16232E;transform:rotate(1.4deg);
+  }
+  .chat-head{display:flex;align-items:center;gap:13px;padding-bottom:16px;border-bottom:3px solid #16232E}
+  .ava{
+    width:50px;height:50px;border-radius:50%;background:#16232E;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;gap:6px;
+  }
+  .eye{width:15px;height:15px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center}
+  .pupil{width:7px;height:7px;border-radius:50%;background:#16232E;transform:translate(1px,1px)}
+  .chat-title{font-weight:800;font-size:20px}
+  .chat-status{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:14px;color:#17A34A}
+
+  .msg{max-width:88%;padding:14px 18px;border-radius:20px;font-size:20px;font-weight:700;line-height:1.35;margin-top:16px}
+  .msg.client{background:#EDE6D4;border-bottom-left-radius:7px}
+  .msg.bot{background:#1F86FF;color:#fff;margin-left:auto;border-bottom-right-radius:7px}
+  .meta{
+    font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:700;
+    color:#8795A1;text-align:right;margin-top:10px;
+  }
+
+  .bottom{display:flex;align-items:center;gap:14px}
+  .chip{
+    background:rgba(255,255,255,.9);border:3px solid #16232E;
+    font-weight:800;font-size:21px;padding:11px 24px;border-radius:999px;
+  }
+  .chip.free{background:#17A34A;color:#fff;border-color:#16232E}
+  .url{
+    margin-left:auto;font-family:'JetBrains Mono',monospace;
+    font-weight:700;font-size:21px;color:#16232E;opacity:.72;
+  }
+</style>
+</head>
+<body>
+  <div class="glow"></div>
+  <div class="frame">
+
+    <div class="top">
+      <div class="brand"><span class="dot"></span>AI-ассистент для бизнеса</div>
+      <div class="chip247">24/7</div>
+    </div>
+
+    <div class="body">
+      <div>
+        <h1>Отвечает<br>клиентам<br><span class="accent">за вас</span></h1>
+        <p class="sub">Telegram, WhatsApp и сайт.<br>Ответ за 3 секунды — даже ночью.</p>
+      </div>
+
+      <div class="chat">
+        <div class="chat-head">
+          <span class="ava">
+            <span class="eye"><span class="pupil"></span></span>
+            <span class="eye"><span class="pupil"></span></span>
+          </span>
+          <div>
+            <div class="chat-title">Ассистент компании</div>
+            <div class="chat-status">онлайн</div>
+          </div>
+        </div>
+        <div class="msg client">Сколько стоит доставка по Москве?</div>
+        <div class="msg bot">Курьером — 350 ₽, от 5 000 ₽ — бесплатно 🚚 Оформить заказ?</div>
+        <div class="meta">прочитано · 23:47</div>
+      </div>
+    </div>
+
+    <div class="bottom">
+      <div class="chip free">Демо бесплатно</div>
+      <div class="chip">Обучается за 1 день</div>
+      <div class="url">narodniy-team.ru/ai</div>
+    </div>
+
+  </div>
+</body>
+</html>

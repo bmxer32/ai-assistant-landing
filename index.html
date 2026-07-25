@@ -6,6 +6,21 @@
 <title>AI-ассистент для бизнеса — отвечает клиентам за вас 24/7</title>
 <meta name="description" content="AI-ассистент отвечает клиентам в Telegram, WhatsApp и на сайте за 3 секунды. Обучается на ваших данных за 1 день. Демо бесплатно.">
 <meta name="theme-color" content="#FFCE45">
+<link rel="canonical" href="https://narodniy-team.ru/ai/">
+
+<!-- превью для Telegram, WhatsApp, VK: без этого ссылка отправляется голой -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://narodniy-team.ru/ai/">
+<meta property="og:title" content="AI-ассистент для бизнеса — отвечает клиентам за вас 24/7">
+<meta property="og:description" content="Отвечает в Telegram, WhatsApp и на сайте за 3 секунды — даже ночью. Обучается на ваших данных за 1 день. Демо бесплатно.">
+<meta property="og:image" content="https://narodniy-team.ru/ai/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ассистент отвечает клиенту про доставку в 23:47">
+<meta property="og:site_name" content="Narodniy Team">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+
 <script>document.documentElement.classList.add('js')</script>
 <link rel="icon" type="image/jpeg" href="logo.jpg">
 <link rel="preload" href="fonts/golos-text-400-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
@@ -389,5 +404,108 @@
 </button>
 
 <script src="script.js"></script>
+
+<!-- микроразметка: организация, услуга с тарифами, FAQ для расширенного сниппета -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://narodniy-team.ru/#organization",
+      "name": "Narodniy Team",
+      "description": "Студия разработки: сайты, мобильные приложения, программы для ПК и автоматизация на базе ИИ.",
+      "url": "https://narodniy-team.ru",
+      "logo": "https://narodniy-team.ru/ai/logo.jpg",
+      "image": "https://narodniy-team.ru/ai/og.png",
+      "telephone": "+7-930-950-24-54",
+      "email": "v71072587@gmail.com",
+      "priceRange": "5900-15900 RUB",
+      "areaServed": { "@type": "Country", "name": "Россия" },
+      "sameAs": ["https://t.me/webe9"]
+    },
+    {
+      "@type": "Service",
+      "name": "AI-ассистент для бизнеса",
+      "serviceType": "Разработка и внедрение AI-ассистента для ответов клиентам",
+      "description": "AI-ассистент отвечает клиентам в Telegram, WhatsApp, на сайте и Avito круглосуточно: по вашему прайсу, записывает клиентов, принимает заказы и передаёт сложные вопросы менеджеру.",
+      "url": "https://narodniy-team.ru/ai/",
+      "provider": { "@id": "https://narodniy-team.ru/#organization" },
+      "areaServed": { "@type": "Country", "name": "Россия" },
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Старт",
+          "price": "5900",
+          "priceCurrency": "RUB",
+          "url": "https://narodniy-team.ru/ai/#pricing",
+          "description": "1 канал на выбор, до 500 диалогов в месяц, обучение на ваших материалах, отчёт раз в неделю."
+        },
+        {
+          "@type": "Offer",
+          "name": "Бизнес",
+          "price": "9900",
+          "priceCurrency": "RUB",
+          "url": "https://narodniy-team.ru/ai/#pricing",
+          "description": "3 канала (Telegram, WhatsApp, сайт), до 2 000 диалогов в месяц, запись клиентов и приём оплат, ежедневный отчёт."
+        },
+        {
+          "@type": "Offer",
+          "name": "Максимум",
+          "price": "15900",
+          "priceCurrency": "RUB",
+          "url": "https://narodniy-team.ru/ai/#pricing",
+          "description": "Без лимита диалогов, все каналы и Avito, интеграция с CRM, персональный менеджер и SLA."
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Сложно запустить? У меня нет времени на «внедрение»",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "От вас — только прайс и ответы на частые вопросы, хоть голосовым. Остальное делаем мы: обычно от созвона до работающего ассистента проходит один день."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "А если ассистент не знает ответа?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Он не выдумывает. Если вопрос вне его знаний — честно говорит, что уточнит, и передаёт диалог живому менеджеру вместе со всей перепиской."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Клиенты поймут, что говорят с ботом?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ассистент не скрывает этого и представляется ассистентом. Но отвечает по-человечески: коротко, по делу, тоном вашей компании. Клиентам важнее ответ за 3 секунды."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что будет с моими данными и перепиской?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ваши материалы идут только на обучение ассистента и никому не передаются. Переписка хранится у вас — доступ есть только у вас и вашей команды."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно посмотреть, как это будет работать у меня?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, это и есть бесплатное демо: присылаете прайс — на следующий день ассистент уже отвечает на ваши вопросы как клиенту. Понравится — подключаем каналы."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 </body>
 </html>
