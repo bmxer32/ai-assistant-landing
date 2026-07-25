@@ -599,6 +599,81 @@ input[type=range]::-moz-range-thumb{
 .tg-card .btn{width:100%;font-size:1.05rem}
 .tg-card .note{margin-top:16px;font-family:var(--m);font-size:.72rem;color:var(--muted)}
 
+/* ============ карточка с формой заявки ============ */
+.lead-card{
+  background:var(--white);color:var(--ink);border:var(--line);border-radius:var(--r);
+  padding:36px 32px;text-align:center;
+  box-shadow:10px 10px 0 rgba(255,206,69,.9);
+  transform:rotate(1deg);
+}
+.lead-card h3{font-family:var(--d);font-weight:700;font-size:1.3rem;margin-bottom:10px}
+.lead-sub{color:var(--muted);font-size:.95rem;max-width:34ch;margin:0 auto 24px}
+.lead-card .note{margin-top:14px;font-family:var(--m);font-size:.72rem;color:var(--muted)}
+
+.lead-form{display:flex;flex-direction:column;gap:14px;text-align:left}
+.field{display:flex;flex-direction:column;gap:7px}
+.field-l{font-weight:700;font-size:.86rem}
+.field input{
+  font:inherit;font-size:1rem;
+  padding:14px 16px;border:2.5px solid var(--ink);border-radius:14px;
+  background:var(--paper);color:var(--ink);
+  transition:box-shadow .15s ease,border-color .15s ease;
+}
+.field input::placeholder{color:#9AA8B4}
+.field input:focus{outline:none;box-shadow:4px 4px 0 var(--ink)}
+/* поле, которое браузер считает незаполненным, подсвечиваем только после попытки отправки */
+.lead-form.tried .field input:invalid{border-color:#D93025;background:#FFF4F3}
+
+.consent{display:flex;gap:11px;align-items:flex-start;font-size:.8rem;line-height:1.45;color:var(--muted)}
+.consent input{
+  flex:none;width:20px;height:20px;margin-top:1px;
+  accent-color:var(--green);cursor:pointer;
+}
+.consent a{text-decoration:underline}
+.lead-form.tried .consent input:invalid{outline:2px solid #D93025;outline-offset:2px;border-radius:4px}
+
+.lead-form .btn{width:100%;margin-top:4px;font-size:1.02rem}
+.lead-form .btn[disabled]{opacity:.6;pointer-events:none}
+
+.form-status{font-size:.86rem;font-weight:600;line-height:1.45;margin-top:2px}
+.form-status.err{color:#D93025}
+.form-status.ok{color:var(--green-d)}
+.form-status:empty{display:none}
+
+/* ловушка для ботов — убрана из потока, но не display:none: часть спам-скриптов
+   такие поля пропускает, а обычные заполняет */
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+.lead-or{
+  display:flex;align-items:center;gap:14px;
+  margin:22px 0 16px;color:var(--muted);
+  font-family:var(--m);font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;
+}
+.lead-or::before,.lead-or::after{content:"";flex:1;height:2.5px;background:#E4E9ED;border-radius:2px}
+.lead-card .tg-link{width:100%;font-size:.97rem}
+
+/* успешная отправка: форма схлопывается, на её месте — ответ */
+.lead-done{display:flex;flex-direction:column;align-items:center;gap:14px;padding:8px 0 4px}
+.lead-done .tick{
+  width:62px;height:62px;border-radius:50%;flex:none;
+  background:var(--green);border:3px solid var(--ink);box-shadow:4px 4px 0 var(--ink);
+  display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.9rem;font-weight:800;
+}
+.lead-done h4{font-family:var(--d);font-weight:700;font-size:1.15rem}
+.lead-done p{color:var(--muted);font-size:.93rem;max-width:32ch}
+
+/* ============ страница «заявка принята» ============ */
+.thanks-sec{background:var(--cream);min-height:72vh;display:flex;align-items:center}
+.thanks-in{max-width:620px;text-align:center}
+.thanks-in .lead-done h1{font-family:var(--d);font-weight:900;font-size:clamp(1.9rem,4vw,2.7rem);line-height:1.1}
+.thanks-lead{color:var(--muted);font-size:1.02rem;max-width:44ch}
+.thanks-next{
+  margin-top:38px;padding-top:30px;border-top:3px solid var(--ink);
+  display:flex;flex-direction:column;align-items:center;gap:16px;
+}
+.thanks-next p{font-weight:600}
+.thanks-back{font-family:var(--m);font-size:.8rem;color:var(--muted);text-decoration:underline}
+
 /* ============ футер ============ */
 .site-foot{background:var(--ink-2);color:#8FA1B3;padding:56px 0 110px}
 .foot-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:44px}
@@ -679,6 +754,7 @@ input[type=range]::-moz-range-thumb{
   .fab{right:16px;bottom:16px;width:54px;height:54px}
   .fab::after{display:none}
   .tg-card{transform:none;padding:30px 22px}
+  .lead-card{transform:none;padding:28px 20px}
   .t-time{display:none}
   .foot-top{grid-template-columns:1fr;gap:32px}
   .site-foot{padding:44px 0 100px}

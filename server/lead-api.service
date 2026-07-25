@@ -1,0 +1,38 @@
+[Unit]
+Description=Приём заявок с лендинга AI-ассистента
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/node /opt/lead-api/lead-api.js
+Restart=always
+RestartSec=3
+User=leadapi
+Group=leadapi
+
+Environment=NODE_ENV=production
+Environment=PORT=3001
+Environment=HOST=127.0.0.1
+
+# сервис принимает данные из интернета — держим его в тесной коробке
+NoNewPrivileges=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectSystem=strict
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictAddressFamilies=AF_INET AF_INET6
+RestrictNamespaces=true
+LockPersonality=true
+MemoryDenyWriteExecute=false
+# единственное, куда можно писать — журнал заявок
+ReadWritePaths=/var/log/lead-api
+
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=lead-api
+
+[Install]
+WantedBy=multi-user.target

@@ -198,16 +198,42 @@
       <h2 style="margin-top:16px">Хотите <span class="mark y">так же</span>?</h2>
       <p class="lead">Ваша ниша — не из списка? Неважно: схема одна и та же. Пришлите прайс — завтра протестируете ассистента, обученного под ваш бизнес.</p>
       <div class="cta-steps">
-        <span><b>01</b> Пишете в Telegram — @webe9</span>
+        <span><b>01</b> Оставляете заявку — имя и контакт</span>
         <span><b>02</b> Присылаете прайс или ссылку на сайт</span>
         <span><b>03</b> Завтра тестируете своего ассистента</span>
       </div>
     </div>
-    <div class="tg-card reveal d1">
+    <!-- та же форма, что на главной; page=cases — чтобы видеть, откуда пришла заявка -->
+    <div class="lead-card reveal d1">
       <img class="tg-logo" src="logo.jpg" alt="Логотип Narodniy Team">
-      <h3>Быстрее всего — в Telegram</h3>
-      <p>Никаких форм и ожиданий: пишете напрямую, отвечает живой человек.</p>
-      <a class="btn" href="https://t.me/webe9" target="_blank" rel="noopener">Написать @webe9</a>
+      <h3>Заявка на бесплатное демо</h3>
+      <p class="lead-sub">Оставьте контакт — пришлём ассистента, обученного на ваших материалах.</p>
+
+      <form class="lead-form" id="leadForm" method="post" action="/ai/api/lead">
+        <input type="hidden" name="page" value="cases">
+        <div class="hp" aria-hidden="true"><label>Не заполняйте<input type="text" name="company_site" tabindex="-1" autocomplete="off"></label></div>
+
+        <label class="field">
+          <span class="field-l">Как к вам обращаться</span>
+          <input type="text" name="name" required maxlength="80" autocomplete="name" placeholder="Михаил">
+        </label>
+
+        <label class="field">
+          <span class="field-l">Телефон или ник в Telegram</span>
+          <input type="text" name="contact" required maxlength="80" autocomplete="tel" placeholder="+7 900 000-00-00 или @nickname" inputmode="text">
+        </label>
+
+        <label class="consent">
+          <input type="checkbox" name="consent" value="1" required>
+          <span>Согласен на обработку персональных данных согласно <a href="https://narodniy-team.ru/privacy" target="_blank" rel="noopener">политике конфиденциальности</a></span>
+        </label>
+
+        <button class="btn" type="submit">Получить демо бесплатно</button>
+        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+      </form>
+
+      <div class="lead-or"><span>или напишите сами</span></div>
+      <a class="btn ghost tg-link" href="https://t.me/webe9" target="_blank" rel="noopener">Telegram — @webe9</a>
       <p class="note">отвечаем в течение часа · демо бесплатно</p>
     </div>
   </div>

@@ -2,6 +2,36 @@
 "use strict";
 var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+/* ============================================================
+   ЯНДЕКС.МЕТРИКА
+   Впишите сюда номер счётчика — единственное место на весь сайт.
+   Пока стоит 0, счётчик не подключается и цели молча не срабатывают.
+   ============================================================ */
+var METRIKA_ID = 0;
+
+if(METRIKA_ID){
+  (function(m,e,t,r,i,k,a){
+    m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=+new Date();
+    k=e.createElement(t);a=e.getElementsByTagName(t)[0];
+    k.async=1;k.src=r;a.parentNode.insertBefore(k,a);
+  })(window,document,'script','https://mc.yandex.ru/metrika/tag.js','ym');
+
+  ym(METRIKA_ID,'init',{
+    clickmap:true,
+    trackLinks:true,
+    accurateTrackBounce:true,
+    webvisor:true,
+    trackHash:true
+  });
+}
+
+/* Цель Метрики. Безопасно вызывать, даже если счётчик не подключён. */
+function goal(name, params){
+  if(!METRIKA_ID || typeof window.ym !== 'function') return;
+  try{ window.ym(METRIKA_ID,'reachGoal',name,params); }catch(e){}
+}
+
 /* ---------- шапка: тень при скролле ---------- */
 var head = document.querySelector('.site-head');
 if(head){
@@ -263,5 +293,95 @@ if(fab && cta){
     fab.classList.toggle('hide', es[0].isIntersecting);
   },{threshold:.15});
   ctaWatch.observe(cta);
+}
+
+/* ---------- цели: клики по Telegram и телефону ---------- */
+document.addEventListener('click', function(e){
+  var a = e.target.closest && e.target.closest('a[href]');
+  if(!a) return;
+  var href = a.getAttribute('href') || '';
+  if(href.indexOf('t.me/') > -1) goal('tg_click', {place: a.closest('.site-foot') ? 'footer' : 'page'});
+  else if(href.indexOf('tel:') === 0) goal('phone_click');
+}, true);
+
+/* ---------- цель: пользовался калькулятором (один раз за визит) ---------- */
+if(rLeads && rCheck){
+  var calcCounted = false;
+  var markCalc = function(){
+    if(calcCounted) return;
+    calcCounted = true;
+    goal('calc_used');
+  };
+  rLeads.addEventListener('change', markCalc);
+  rCheck.addEventListener('change', markCalc);
+}
+
+/* ---------- цель: долистал до тарифов ---------- */
+var pricing = document.getElementById('pricing');
+if(pricing){
+  var priceWatch = new IntersectionObserver(function(es){
+    if(es[0].isIntersecting){ priceWatch.disconnect(); goal('pricing_view'); }
+  },{threshold:.3});
+  priceWatch.observe(pricing);
+}
+
+/* ---------- форма заявки ---------- */
+var form = document.getElementById('leadForm');
+if(form && window.fetch){
+  var statusEl = document.getElementById('formStatus');
+  var submitBtn = form.querySelector('button[type=submit]');
+  var sending = false;
+
+  var say = function(text, cls){
+    if(!statusEl) return;
+    statusEl.textContent = text;
+    statusEl.className = 'form-status' + (cls ? ' ' + cls : '');
+  };
+
+  /* успех: форма и «или напишите сами» уступают место ответу */
+  var showDone = function(){
+    var card = form.closest('.lead-card');
+    var done = document.createElement('div');
+    done.className = 'lead-done';
+    done.innerHTML = '<span class="tick" aria-hidden="true">✓</span>' +
+      '<h4>Заявка принята</h4>' +
+      '<p>Свяжемся в течение часа. Хотите быстрее — напишите в Telegram, он ниже.</p>';
+    form.replaceWith(done);
+    var or = card && card.querySelector('.lead-or span');
+    if(or) or.textContent = 'а пока — можно написать';
+  };
+
+  form.addEventListener('submit', function(e){
+    /* показываем подсветку незаполненного только после первой попытки */
+    form.classList.add('tried');
+    if(!form.checkValidity()) return;   /* дальше браузер сам покажет подсказки */
+
+    e.preventDefault();
+    if(sending) return;
+    sending = true;
+    submitBtn.disabled = true;
+    say('Отправляем…');
+
+    var fd = new FormData(form);
+    fd.append('referrer', document.referrer || '');
+    fd.append('url', location.href);
+
+    fetch(form.action, {
+      method: 'POST',
+      headers: {'Accept': 'application/json'},
+      body: new URLSearchParams(fd)
+    })
+    .then(function(r){ return r.json().catch(function(){ return {ok: r.ok}; }); })
+    .then(function(d){
+      if(!d || !d.ok) throw new Error((d && d.error) || 'fail');
+      goal('lead_form', {page: fd.get('page') || ''});
+      showDone();
+    })
+    .catch(function(){
+      sending = false;
+      submitBtn.disabled = false;
+      say('Не удалось отправить — похоже, проблема со связью. Попробуйте ещё раз или напишите в Telegram, он чуть ниже.', 'err');
+    });
+  });
 }
 })();

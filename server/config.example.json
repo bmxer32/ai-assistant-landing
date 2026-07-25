@@ -1,0 +1,8 @@
+{
+  "_комментарий": "Скопировать в /etc/lead-api/config.json и заполнить. chmod 640, владелец root:leadapi.",
+  "_как_получить_botToken": "Написать @BotFather в Telegram → /newbot → скопировать выданный токен",
+  "_как_получить_chatId": "Написать своему боту любое сообщение, затем открыть https://api.telegram.org/bot<ТОКЕН>/getUpdates и взять message.chat.id",
+
+  "botToken": "",
+  "chatId": ""
+}
