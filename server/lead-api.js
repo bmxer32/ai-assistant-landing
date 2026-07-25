@@ -187,18 +187,23 @@ const server = http.createServer(async (req, res) => {
   if (!name || !contact) return reply(400, { ok: false, error: 'заполните имя и контакт' });
   if (!body.consent) return reply(400, { ok: false, error: 'нужно согласие на обработку данных' });
 
+  // метки ищем в адресе входа в сессию: с него человек мог уйти на другую
+  // страницу, и в текущем адресе query-строки уже не будет.
+  // Старые клиенты landing не присылают — для них остаётся прежнее поведение.
+  const landing = clean(body.landing, 500) || clean(body.url, 500);
   let utm = '';
   try {
-    const q = new URL(clean(body.url, 500)).searchParams;
+    const q = new URL(landing).searchParams;
     utm = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'yclid']
       .map(k => q.get(k) && k + '=' + q.get(k)).filter(Boolean).join(' · ');
-  } catch (e) { /* url кривой или пустой — не беда */ }
+  } catch (e) { /* адрес кривой или пустой — не беда */ }
 
   const lead = {
     ts: new Date().toISOString(),
     name, contact,
     page: clean(body.page, 40),
     url: clean(body.url, 500),
+    landing,
     referrer: clean(body.referrer, 300),
     utm,
     ip,

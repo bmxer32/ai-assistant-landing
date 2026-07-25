@@ -32,6 +32,31 @@ function goal(name, params){
   try{ window.ym(METRIKA_ID,'reachGoal',name,params); }catch(e){}
 }
 
+/* ============================================================
+   ТОЧКА ВХОДА В СЕССИЮ
+   utm-метки и yclid живут только в адресе той страницы, на которую
+   человек пришёл. Стоит ему кликнуть «Кейсы» — query-строка теряется,
+   и заявка, отправленная оттуда, придёт без источника. Поэтому адрес
+   входа и внешний реферер запоминаем один раз за сессию.
+   Первый заход важнее последнего: перезаписывать не даём.
+   ============================================================ */
+var ENTRY_KEY = 'nt_entry';
+
+function readEntry(){
+  try{ return JSON.parse(sessionStorage.getItem(ENTRY_KEY)) || {}; }
+  catch(e){ return {}; }   /* приватный режим или хранилище отключено */
+}
+
+(function saveEntry(){
+  try{
+    if(sessionStorage.getItem(ENTRY_KEY)) return;
+    sessionStorage.setItem(ENTRY_KEY, JSON.stringify({
+      url: location.href,
+      ref: document.referrer || ''
+    }));
+  }catch(e){ /* не смогли сохранить — обойдёмся текущим адресом при отправке */ }
+})();
+
 /* ---------- шапка: тень при скролле ---------- */
 var head = document.querySelector('.site-head');
 if(head){
@@ -362,9 +387,12 @@ if(form && window.fetch){
     submitBtn.disabled = true;
     say('Отправляем…');
 
+    var entry = readEntry();
     var fd = new FormData(form);
-    fd.append('referrer', document.referrer || '');
     fd.append('url', location.href);
+    /* адрес входа — из него сервер достанет utm и yclid */
+    fd.append('landing', entry.url || location.href);
+    fd.append('referrer', entry.ref || document.referrer || '');
 
     fetch(form.action, {
       method: 'POST',
