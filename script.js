@@ -7,7 +7,7 @@ var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
    Впишите сюда номер счётчика — единственное место на весь сайт.
    Пока стоит 0, счётчик не подключается и цели молча не срабатывают.
    ============================================================ */
-var METRIKA_ID = 0;
+var METRIKA_ID = 111030011;
 
 if(METRIKA_ID){
   (function(m,e,t,r,i,k,a){
